@@ -4,5 +4,5 @@ It will expose LOCAL_PORT to allow connection to remote site
 
 ## Docker build
 ```
-$ docker build -t socat -f Dockerfile .
+$ docker build -t proxytunnel -f Dockerfile .
 ```
