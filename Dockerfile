@@ -10,6 +10,6 @@ ENV LC_ALL=en_US.UTF-8
 
 COPY entrypoint.sh /usr/local/bin/
 
-EXPOSE 8080
+EXPOSE 8888
 
 ENTRYPOINT ["/bin/sh", "--", "/usr/local/bin/entrypoint.sh"]

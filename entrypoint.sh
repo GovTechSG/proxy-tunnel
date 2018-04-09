@@ -1,5 +1,6 @@
 #!/bin/bash
 
+LOCAL_PORT=8888
 proto="$(echo $HTTP_PROXY | grep :// | sed -e's,^\(.*://\).*,\1,g')"
 # remove the protocol
 url="$(echo ${HTTP_PROXY/$proto/})"
@@ -20,4 +21,4 @@ PROXY_HOST="$(echo $hostport |  cut -d: -f1)"
 PROXY_PORT="$(echo $hostport |  cut -d: -f2)"
 
 
-/bin/socat TCP-L:$LOCAL_PORT,fork,reuseaddr PROXY:$PROXY_HOST:$DEST_HOST:$DEST_PORT,proxyport=$PROXY_PORT,proxyauth=$PROXY_USER:$PROXY_PASS
+/bin/socat -d -d -d TCP-L:$LOCAL_PORT,fork,reuseaddr PROXY:$PROXY_HOST:$DEST_HOST:$DEST_PORT,proxyport=$PROXY_PORT,proxyauth=$PROXY_USER:$PROXY_PASS
